@@ -91,7 +91,7 @@ pages/
 ### 餐次类型 MealType
 ```json
 {
-  "breakfast": {"name": "早餐", "icon": "🌅", "timeRange": "6:00-9:00"},
+  "breakfast": {"name": "早餐", "icon": "🌅", "timeRange": "5:00-10:00"},
   "lunch": {"name": "午餐", "icon": "☀️", "timeRange": "11:00-13:00"},
   "dinner": {"name": "晚餐", "icon": "🌙", "timeRange": "17:00-19:00"},
   "snack": {"name": "加餐", "icon": "🍪", "timeRange": "其他时间"}

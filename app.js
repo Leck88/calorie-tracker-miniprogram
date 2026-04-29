@@ -20,7 +20,7 @@ App({
       { id: 'soup', name: '汤类', icon: '🍲' },
       { id: 'other', name: '其他', icon: '🍽️' }
     ],
-    // 预置食品数据（100+种常见食品）
+    // 预置食品数据（180+种常见食品）
     presetFoods: [
       // ===== 主食类 =====
       { name: '白米饭', calorie: 116, category: 'staple', protein: 2.6, carbs: 25.9, fat: 0.3, icon: '🍚' },
@@ -85,7 +85,7 @@ App({
       { name: '金针菇', calorie: 32, category: 'vegetable', protein: 2.4, carbs: 6.0, fat: 0.4, icon: '🍄' },
       { name: '杏鲍菇', calorie: 31, category: 'vegetable', protein: 3.0, carbs: 5.0, fat: 0.1, icon: '🍄' },
 
-      // ===== 水果类 =====
+      // ===== 蔬果类 =====
       { name: '苹果', calorie: 52, category: 'vegetable', protein: 0.3, carbs: 13.8, fat: 0.2, icon: '🍎' },
       { name: '香蕉', calorie: 93, category: 'vegetable', protein: 1.4, carbs: 22.8, fat: 0.2, icon: '🍌' },
       { name: '橙子', calorie: 47, category: 'vegetable', protein: 0.9, carbs: 11.8, fat: 0.1, icon: '🍊' },
@@ -233,8 +233,6 @@ App({
       { name: '豆腐皮', calorie: 302, category: 'other', protein: 44.0, carbs: 8.0, fat: 12.0, icon: '🧈' },
       { name: '豆腐干', calorie: 140, category: 'other', protein: 12.0, carbs: 4.0, fat: 8.0, icon: '🧈' },
       { name: '腐竹', calorie: 459, category: 'other', protein: 44.0, carbs: 22.0, fat: 27.0, icon: '🧈' },
-      { name: '豆浆', calorie: 33, category: 'other', protein: 2.9, carbs: 1.8, fat: 1.6, icon: '🥛' },
-      { name: '豆皮', calorie: 302, category: 'other', protein: 44.0, carbs: 8.0, fat: 12.0, icon: '🧈' },
 
       // ===== 调味料（低用量不计入热量）=====
       { name: '酱油', calorie: 63, category: 'other', protein: 8.0, carbs: 6.0, fat: 0.1, icon: '🧂' },
