@@ -1,0 +1,120 @@
+<view class="page">
+  <!-- 时间选择 -->
+  <view class="time-tabs">
+    <view 
+      wx:for="{{timeRanges}}" 
+      wx:key="key"
+      class="time-tab {{selectedRange === item.key ? 'active' : ''}}"
+      bindtap="selectRange"
+      data-range="{{item.key}}"
+    >{{item.name}}</view>
+  </view>
+
+  <!-- 总览卡片 -->
+  <view class="card overview-card">
+    <view class="overview-main">
+      <text class="overview-cal">{{totalCalorie}}</text>
+      <text class="overview-unit">千卡</text>
+    </view>
+    <text class="overview-label">总摄入</text>
+    <view class="overview-goal">
+      <text class="goal-text">目标 {{settings.dailyCalorieGoal}}千卡/天</text>
+    </view>
+  </view>
+
+  <!-- 热量趋势 -->
+  <view class="card chart-card">
+    <view class="card-title">热量趋势</view>
+    <view class="trend-chart">
+      <view class="chart-bars">
+        <view 
+          wx:for="{{dailyData}}" 
+          wx:key="date"
+          class="chart-bar-wrap"
+        >
+          <view class="chart-bar {{item.isToday ? 'today' : ''}}" style="height: {{item.height}}%"></view>
+          <text class="chart-label">{{item.dayStr}}</text>
+        </view>
+      </view>
+      <view class="goal-line">
+        <view class="line"></view>
+        <text class="line-label">目标线</text>
+      </view>
+    </view>
+    <view class="trend-summary">
+      <view class="summary-item">
+        <text class="summary-value">{{avgCalorie}}</text>
+        <text class="summary-label">日均</text>
+      </view>
+      <view class="summary-item">
+        <text class="summary-value {{maxClass}}">{{maxCalorie}}</text>
+        <text class="summary-label">最高</text>
+      </view>
+      <view class="summary-item">
+        <text class="summary-value {{minClass}}">{{minCalorie}}</text>
+        <text class="summary-label">最低</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 营养素占比 -->
+  <view class="card nutrient-card">
+    <view class="card-title">营养素摄入</view>
+    <view class="nutrient-row">
+      <view class="nutrient-item">
+        <view class="nutrient-circle protein">
+          <text class="circle-value">{{avgProtein.toFixed(0)}}</text>
+          <text class="circle-unit">g</text>
+        </view>
+        <text class="nutrient-name">蛋白质</text>
+        <text class="nutrient-goal">目标 {{settings.dailyProteinGoal}}g</text>
+      </view>
+      <view class="nutrient-item">
+        <view class="nutrient-circle carbs">
+          <text class="circle-value">{{avgCarbs.toFixed(0)}}</text>
+          <text class="circle-unit">g</text>
+        </view>
+        <text class="nutrient-name">碳水</text>
+        <text class="nutrient-goal">目标 {{settings.dailyCarbsGoal}}g</text>
+      </view>
+      <view class="nutrient-item">
+        <view class="nutrient-circle fat">
+          <text class="circle-value">{{avgFat.toFixed(0)}}</text>
+          <text class="circle-unit">g</text>
+        </view>
+        <text class="nutrient-name">脂肪</text>
+        <text class="nutrient-goal">目标 {{settings.dailyFatGoal}}g</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 食品统计 -->
+  <view class="card food-stats-card">
+    <view class="card-title">常吃食品 TOP5</view>
+    <view wx:if="{{topFoods.length > 0}}">
+      <view 
+        wx:for="{{topFoods}}" 
+        wx:key="id"
+        class="top-food-item"
+      >
+        <view class="food-rank">{{index + 1}}</view>
+        <text class="food-icon">{{item.icon}}</text>
+        <view class="food-info">
+          <text class="food-name">{{item.name}}</text>
+          <text class="food-count">吃了 {{item.count}} 次</text>
+        </view>
+        <text class="food-total-cal">{{item.totalCalorie}}千卡</text>
+      </view>
+    </view>
+    <view wx:else class="empty-tip">
+      暂无数据
+    </view>
+  </view>
+
+  <!-- 设置入口 -->
+  <view class="card settings-card" bindtap="openSettings">
+    <text class="settings-icon">⚙️</text>
+    <text class="settings-text">每日目标设置</text>
+    <text class="settings-arrow">›</text>
+  </view>
+</view>

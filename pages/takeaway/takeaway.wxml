@@ -1,0 +1,85 @@
+<view class="page">
+  <!-- 今日摄入提示 -->
+  <view class="card tip-card">
+    <view class="tip-content">
+      <text class="tip-icon">🎯</text>
+      <view class="tip-text-wrap">
+        <text class="tip-title">今日剩余热量</text>
+        <text class="tip-value {{remaining < 0 ? 'over' : ''}}">{{remaining > 0 ? remaining : 0}} 千卡</text>
+      </view>
+    </view>
+    <view class="tip-tip" wx:if="{{remaining <= 0}}">
+      今日已超标！建议选择低卡轻食外卖或自行准备餐食
+    </view>
+  </view>
+
+  <!-- 外卖平台入口 -->
+  <view class="card">
+    <view class="section-title">🍜 外卖平台</view>
+    <view class="platform-grid">
+      <view wx:for="{{platforms}}" wx:key="name" class="platform-item" bindtap="openPlatform" data-app="{{item.app}}">
+        <view class="platform-icon" style="background: {{item.color}}">
+          <text>{{item.emoji}}</text>
+        </view>
+        <text class="platform-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 低卡外卖选择 -->
+  <view class="card">
+    <view class="section-title">🥗 低卡外卖推荐</view>
+    <view class="tips-box">
+      <text class="tips-icon">💡</text>
+      <text class="tips-text">选择外卖时优选清蒸、水煮、凉拌类菜品，避免油炸、炒饭、炒面等高热量选项</text>
+    </view>
+    <view class="suggest-list">
+      <view wx:for="{{lowCalSuggestions}}" wx:key="name" class="suggest-item">
+        <text class="suggest-icon">{{item.icon}}</text>
+        <view class="suggest-info">
+          <text class="suggest-name">{{item.name}}</text>
+          <text class="suggest-desc">{{item.desc}}</text>
+        </view>
+        <text class="suggest-cal">~{{item.cal}}千卡</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 外卖点餐技巧 -->
+  <view class="card">
+    <view class="section-title">📋 点餐小技巧</view>
+    <view class="tips-grid">
+      <view wx:for="{{tips}}" wx:key="title" class="tips-item">
+        <text class="tips-icon">{{item.icon}}</text>
+        <text class="tips-title">{{item.title}}</text>
+        <text class="tips-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 替代方案 -->
+  <view class="card">
+    <view class="section-title">🏠 自制替代方案</view>
+    <view class="alternative-list">
+      <view wx:for="{{alternatives}}" wx:key="name" class="alternative-item">
+        <text class="alternative-icon">{{item.icon}}</text>
+        <view class="alternative-info">
+          <text class="alternative-name">{{item.name}}</text>
+          <text class="alternative-save">可节省约 {{item.save}} 千卡</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快速入口 -->
+  <view class="quick-actions">
+    <button class="action-btn diet" bindtap="goToDiet">
+      <text class="action-icon">🥗</text>
+      <text>减脂餐导购</text>
+    </button>
+    <button class="action-btn record" bindtap="goToRecord">
+      <text class="action-icon">📝</text>
+      <text>记录饮食</text>
+    </button>
+  </view>
+</view>

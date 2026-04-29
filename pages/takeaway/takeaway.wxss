@@ -1,0 +1,280 @@
+.page {
+  padding: 20rpx;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 提示卡片 */
+.tip-card {
+  background: linear-gradient(135deg, #ff6b35 0%, #f4511e 100%);
+  color: #fff;
+}
+
+.tip-content {
+  display: flex;
+  align-items: center;
+}
+
+.tip-icon {
+  font-size: 60rpx;
+  margin-right: 20rpx;
+}
+
+.tip-text-wrap {
+  flex: 1;
+}
+
+.tip-title {
+  font-size: 24rpx;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.tip-value {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.tip-value.over {
+  color: #ffeb3b;
+}
+
+.tip-tip {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10rpx;
+  padding: 14rpx 18rpx;
+  font-size: 22rpx;
+  margin-top: 16rpx;
+}
+
+/* 区域标题 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+}
+
+/* 外卖平台 */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.platform-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 10rpx;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  transition: all 0.3s;
+}
+
+.platform-item:active {
+  transform: scale(0.95);
+  background: #f0f0f0;
+}
+
+.platform-icon {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+}
+
+.platform-icon text {
+  font-size: 48rpx;
+}
+
+.platform-name {
+  font-size: 24rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 提示框 */
+.tips-box {
+  background: #fff3e0;
+  border-radius: 12rpx;
+  padding: 18rpx 20rpx;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.tips-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+
+.tips-text {
+  font-size: 24rpx;
+  color: #e65100;
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* 低卡建议列表 */
+.suggest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.suggest-item {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 20rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+}
+
+.suggest-icon {
+  font-size: 44rpx;
+  margin-right: 16rpx;
+}
+
+.suggest-info {
+  flex: 1;
+}
+
+.suggest-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.suggest-desc {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.suggest-cal {
+  font-size: 26rpx;
+  color: #ff6b35;
+  font-weight: bold;
+}
+
+/* 技巧网格 */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.tips-item {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tips-icon {
+  font-size: 44rpx;
+  margin-bottom: 10rpx;
+}
+
+.tips-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 6rpx;
+}
+
+.tips-desc {
+  font-size: 22rpx;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* 替代方案 */
+.alternative-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.alternative-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 20rpx;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 12rpx;
+}
+
+.alternative-icon {
+  font-size: 36rpx;
+  margin-right: 14rpx;
+}
+
+.alternative-info {
+  flex: 1;
+}
+
+.alternative-name {
+  font-size: 26rpx;
+  color: #2e7d32;
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.alternative-save {
+  font-size: 22rpx;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* 快速操作 */
+.quick-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 10rpx;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  border: none;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.action-btn::after {
+  border: none;
+}
+
+.action-btn.diet {
+  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+  color: #fff;
+}
+
+.action-btn.record {
+  background: linear-gradient(135deg, #ff6b35 0%, #f4511e 100%);
+  color: #fff;
+}
+
+.action-icon {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}

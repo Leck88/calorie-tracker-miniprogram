@@ -1,0 +1,149 @@
+.page {
+  padding: 20rpx;
+}
+
+.search-wrap {
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.search-input {
+  background: #fff;
+  border-radius: 50rpx;
+  padding: 20rpx 70rpx 20rpx 30rpx;
+  font-size: 28rpx;
+}
+
+.search-icon {
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32rpx;
+}
+
+.category-scroll {
+  white-space: nowrap;
+  margin-bottom: 20rpx;
+}
+
+.category-list {
+  display: inline-flex;
+  padding: 10rpx 0;
+}
+
+.category-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 16rpx 28rpx;
+  margin-right: 16rpx;
+  background: #fff;
+  border-radius: 50rpx;
+  font-size: 26rpx;
+  color: #666;
+  white-space: nowrap;
+}
+
+.category-item.active {
+  background: #07c160;
+  color: #fff;
+}
+
+.food-list {
+  padding-bottom: 120rpx;
+}
+
+.food-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.food-icon {
+  font-size: 64rpx;
+  margin-right: 24rpx;
+}
+
+.food-info {
+  flex: 1;
+}
+
+.food-name {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.food-detail {
+  display: flex;
+  align-items: center;
+}
+
+.food-cal {
+  font-size: 26rpx;
+  color: #07c160;
+  margin-right: 20rpx;
+}
+
+.food-cat {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.food-actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-edit,
+.action-delete {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  border-radius: 50%;
+  margin-left: 16rpx;
+}
+
+.action-edit:active,
+.action-delete:active {
+  background: #f0f0f0;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 60rpx;
+  font-weight: bold;
+  box-shadow: 0 8rpx 30rpx rgba(7, 193, 96, 0.4);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 100rpx 0;
+}
+
+.empty-state .icon {
+  font-size: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-state .text {
+  color: #999;
+  font-size: 28rpx;
+}

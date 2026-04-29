@@ -1,0 +1,118 @@
+<view class="page">
+  <!-- 今日概览卡片 -->
+  <view class="card overview-card">
+    <view class="overview-header flex-between">
+      <view>
+        <text class="overview-date">{{todayStr}}</text>
+        <text class="overview-weekday">{{weekday}}</text>
+      </view>
+      <view class="overview-goal" bindtap="editGoal">
+        <text class="goal-label">目标</text>
+        <text class="goal-value">{{settings.dailyCalorieGoal}}</text>
+        <text class="goal-unit">kcal</text>
+      </view>
+    </view>
+    
+    <view class="calorie-ring">
+      <view class="ring-bg"></view>
+      <view class="ring-progress {{progressStatus}}" style="transform: rotate({{progressAngle}}deg)"></view>
+      <view class="ring-center">
+        <text class="current-cal">{{todayCalorie}}</text>
+        <text class="ring-label">千卡</text>
+      </view>
+    </view>
+    
+    <!-- 热量状态提示 -->
+    <view class="calorie-tip {{progressStatus}}">
+      <text class="tip-icon">{{progressIcon}}</text>
+      <text class="tip-text">{{progressTip}}</text>
+    </view>
+    
+    <view class="nutrient-row">
+      <view class="nutrient-item">
+        <view class="nutrient-progress protein" style="width: {{proteinPercent}}%"></view>
+        <text class="nutrient-value">{{todayNutrients.protein.toFixed(1)}}g</text>
+        <text class="nutrient-label">蛋白质</text>
+      </view>
+      <view class="nutrient-item">
+        <view class="nutrient-progress carbs" style="width: {{carbsPercent}}%"></view>
+        <text class="nutrient-value">{{todayNutrients.carbs.toFixed(1)}}g</text>
+        <text class="nutrient-label">碳水</text>
+      </view>
+      <view class="nutrient-item">
+        <view class="nutrient-progress fat" style="width: {{fatPercent}}%"></view>
+        <text class="nutrient-value">{{todayNutrients.fat.toFixed(1)}}g</text>
+        <text class="nutrient-label">脂肪</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 餐次快捷添加 -->
+  <view class="meal-quick-add">
+    <view class="meal-quick-item {{currentMealType === 'breakfast' ? 'active' : ''}}" bindtap="quickAddFood" data-type="breakfast">
+      <text class="meal-icon">🌅</text>
+      <text class="meal-name">早餐</text>
+      <text class="meal-cal">{{mealStats.breakfast || 0}}千卡</text>
+    </view>
+    <view class="meal-quick-item {{currentMealType === 'lunch' ? 'active' : ''}}" bindtap="quickAddFood" data-type="lunch">
+      <text class="meal-icon">☀️</text>
+      <text class="meal-name">午餐</text>
+      <text class="meal-cal">{{mealStats.lunch || 0}}千卡</text>
+    </view>
+    <view class="meal-quick-item {{currentMealType === 'dinner' ? 'active' : ''}}" bindtap="quickAddFood" data-type="dinner">
+      <text class="meal-icon">🌙</text>
+      <text class="meal-name">晚餐</text>
+      <text class="meal-cal">{{mealStats.dinner || 0}}千卡</text>
+    </view>
+    <view class="meal-quick-item {{currentMealType === 'snack' ? 'active' : ''}}" bindtap="quickAddFood" data-type="snack">
+      <text class="meal-icon">🍪</text>
+      <text class="meal-name">加餐</text>
+      <text class="meal-cal">{{mealStats.snack || 0}}千卡</text>
+    </view>
+  </view>
+
+  <!-- 今日饮食列表 -->
+  <view class="card">
+    <view class="card-header flex-between">
+      <text class="card-title">今日饮食</text>
+      <text class="record-count">{{todayRecords.length}}条记录</text>
+    </view>
+    
+    <view wx:if="{{todayRecords.length > 0}}">
+      <view wx:for="{{todayRecords}}" wx:key="id" class="record-item" data-type="{{item.mealType}}">
+        <view class="meal-badge">{{item.mealIcon}}</view>
+        <view class="record-icon">{{item.icon}}</view>
+        <view class="record-info">
+          <view class="record-name">{{item.foodName}}</view>
+          <view class="record-detail">{{item.weight}}g · {{item.calorie}}千卡</view>
+        </view>
+        <view class="record-time">{{item.timeStr}}</view>
+        <view class="record-delete" bindtap="deleteRecord" data-id="{{item.id}}">×</view>
+      </view>
+    </view>
+    
+    <view wx:else class="empty-state">
+      <text class="icon">🍽️</text>
+      <text class="text">暂无饮食记录\n点击餐次按钮快速添加</text>
+    </view>
+  </view>
+
+  <!-- 快捷功能入口 -->
+  <view class="quick-links">
+    <view class="quick-link diet-link" bindtap="goToDiet">
+      <text class="link-icon">🥗</text>
+      <text class="link-title">减脂餐导购</text>
+      <text class="link-desc">低卡高蛋白</text>
+    </view>
+    <view class="quick-link stats-link" bindtap="goToStats">
+      <text class="link-icon">📊</text>
+      <text class="link-title">数据统计</text>
+      <text class="link-desc">趋势分析</text>
+    </view>
+    <view class="quick-link takeaway-link" bindtap="goToTakeaway">
+      <text class="link-icon">🛵</text>
+      <text class="link-title">外卖推荐</text>
+      <text class="link-desc">低卡外卖</text>
+    </view>
+  </view>
+</view>

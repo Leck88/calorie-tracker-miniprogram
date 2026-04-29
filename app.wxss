@@ -1,0 +1,273 @@
+/* 吃喝卡路里 - 全局样式 */
+
+page {
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  padding: 24rpx 48rpx;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #666;
+  border: none;
+  border-radius: 50rpx;
+  padding: 24rpx 48rpx;
+  font-size: 30rpx;
+}
+
+.btn-secondary::after {
+  border: none;
+}
+
+/* 输入框样式 */
+.input-wrap {
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.input-label {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
+.input-field {
+  font-size: 32rpx;
+  color: #333;
+  width: 100%;
+}
+
+/* 分类标签 */
+.category-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  background: #f0f0f0;
+  color: #666;
+}
+
+.category-tag.active {
+  background: #07c160;
+  color: #fff;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 100rpx 50rpx;
+  color: #999;
+}
+
+.empty-state .icon {
+  font-size: 120rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-state .text {
+  font-size: 28rpx;
+}
+
+/* 进度条 */
+.progress-bar {
+  height: 20rpx;
+  background: #e0e0e0;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10rpx;
+  transition: width 0.3s ease;
+}
+
+/* 数值展示 */
+.stat-number {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #07c160;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+/* 列表项 */
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item .icon {
+  font-size: 48rpx;
+  margin-right: 24rpx;
+}
+
+.list-item .content {
+  flex: 1;
+}
+
+.list-item .title {
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.list-item .desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 食品项 */
+.food-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.food-item .icon {
+  font-size: 64rpx;
+  margin-right: 24rpx;
+}
+
+.food-item .info {
+  flex: 1;
+}
+
+.food-item .name {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.food-item .calorie {
+  font-size: 26rpx;
+  color: #07c160;
+}
+
+/* 工具类 */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-10 {
+  margin-top: 10rpx;
+}
+
+.mt-20 {
+  margin-top: 20rpx;
+}
+
+.mt-30 {
+  margin-top: 30rpx;
+}
+
+.mb-10 {
+  margin-bottom: 10rpx;
+}
+
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
+.mb-30 {
+  margin-bottom: 30rpx;
+}
+
+.color-primary {
+  color: #07c160;
+}
+
+.color-gray {
+  color: #999;
+}
+
+.color-red {
+  color: #ff6b6b;
+}
+
+.color-orange {
+  color: #ffa502;
+}
+
+.bg-green {
+  background: #07c160;
+}
+
+.bg-red {
+  background: #ff6b6b;
+}
+
+.bg-orange {
+  background: #ffa502;
+}

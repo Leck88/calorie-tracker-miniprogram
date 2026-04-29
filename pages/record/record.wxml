@@ -1,0 +1,121 @@
+<view class="page">
+  <!-- 日期选择 -->
+  <view class="date-selector">
+    <view class="date-nav" bindtap="prevDay">
+      <text class="nav-arrow">‹</text>
+    </view>
+    <view class="date-display">
+      <text class="current-date">{{currentDateStr}}</text>
+      <text class="date-label">{{dateLabel}}</text>
+    </view>
+    <view class="date-nav" bindtap="nextDay">
+      <text class="nav-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 当日总结 -->
+  <view class="card summary-card">
+    <view class="summary-header">
+      <text class="summary-title">当日摄入</text>
+      <text class="summary-goal">目标: {{settings.dailyCalorieGoal}}千卡</text>
+    </view>
+    
+    <view class="summary-calorie">
+      <text class="cal-num">{{dayCalorie}}</text>
+      <text class="cal-unit">千卡</text>
+    </view>
+    
+    <view class="summary-progress">
+      <view class="progress-bar">
+        <view class="progress-fill {{progressClass}}" style="width: {{progressPercent}}%"></view>
+      </view>
+      <text class="progress-text">{{progressPercent.toFixed(0)}}%</text>
+    </view>
+
+    <!-- 营养素详情 -->
+    <view class="nutrient-detail">
+      <view class="nutrient-item">
+        <view class="nutrient-bar">
+          <view class="nutrient-fill protein" style="width: {{proteinPercent}}%"></view>
+        </view>
+        <view class="nutrient-info">
+          <text class="nutr-name">蛋白质</text>
+          <text class="nutr-value">{{todayNutrients.protein.toFixed(1)}}g / {{settings.dailyProteinGoal}}g</text>
+        </view>
+      </view>
+      <view class="nutrient-item">
+        <view class="nutrient-bar">
+          <view class="nutrient-fill carbs" style="width: {{carbsPercent}}%"></view>
+        </view>
+        <view class="nutrient-info">
+          <text class="nutr-name">碳水</text>
+          <text class="nutr-value">{{todayNutrients.carbs.toFixed(1)}}g / {{settings.dailyCarbsGoal}}g</text>
+        </view>
+      </view>
+      <view class="nutrient-item">
+        <view class="nutrient-bar">
+          <view class="nutrient-fill fat" style="width: {{fatPercent}}%"></view>
+        </view>
+        <view class="nutrient-info">
+          <text class="nutr-name">脂肪</text>
+          <text class="nutr-value">{{todayNutrients.fat.toFixed(1)}}g / {{settings.dailyFatGoal}}g</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 餐次热量分布 -->
+    <view class="meal-summary" wx:if="{{mealGroups.length > 0}}">
+      <text class="meal-summary-title">各餐热量分布</text>
+      <view class="meal-bars">
+        <view wx:for="{{mealGroups}}" wx:key="type" class="meal-bar-item">
+          <text class="meal-bar-icon">{{item.icon}}</text>
+          <view class="meal-bar-track">
+            <view class="meal-bar-fill" style="width: {{dayCalorie > 0 ? (item.totalCalorie / dayCalorie * 100) : 0}}%"></view>
+          </view>
+          <text class="meal-bar-value">{{item.totalCalorie}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 饮食记录列表 -->
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">饮食记录</text>
+      <view class="add-record-btn" bindtap="goToAddRecord">
+        <text>+</text> 添加
+      </view>
+    </view>
+
+    <view wx:if="{{dayRecords.length > 0}}">
+      <!-- 按餐次分组 -->
+      <view wx:for="{{mealGroups}}" wx:key="type" class="meal-group">
+        <view class="meal-header">
+          <text class="meal-icon">{{item.icon}}</text>
+          <text class="meal-name">{{item.name}}</text>
+          <text class="meal-cal">{{item.totalCalorie}}千卡</text>
+        </view>
+        
+        <view wx:for="{{item.records}}" wx:for-item="record" wx:key="id" class="record-item">
+          <view class="record-left">
+            <text class="record-icon">{{record.icon}}</text>
+            <view class="record-info">
+              <text class="record-name">{{record.foodName}}</text>
+              <text class="record-weight">{{record.weight}}g</text>
+            </view>
+          </view>
+          <view class="record-right">
+            <text class="record-cal">{{record.calorie}}千卡</text>
+            <view class="record-del" bindtap="deleteRecord" data-id="{{record.id}}">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:else class="empty-state">
+      <text class="icon">📋</text>
+      <text class="text">暂无饮食记录</text>
+      <button class="btn-add-record" bindtap="goToAddRecord">添加记录</button>
+    </view>
+  </view>
+</view>

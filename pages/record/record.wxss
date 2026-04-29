@@ -1,0 +1,348 @@
+.page {
+  padding: 20rpx;
+}
+
+.date-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.date-nav {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border-radius: 50%;
+}
+
+.nav-arrow {
+  font-size: 48rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.date-display {
+  text-align: center;
+}
+
+.current-date {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+}
+
+.date-label {
+  font-size: 24rpx;
+  color: #07c160;
+  margin-top: 8rpx;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
+  color: #fff;
+}
+
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.summary-title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.summary-goal {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.summary-calorie {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.cal-num {
+  font-size: 80rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cal-unit {
+  font-size: 28rpx;
+  opacity: 0.8;
+  margin-left: 10rpx;
+}
+
+.summary-progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 8rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.low { background: #ffeb3b; }
+.progress-fill.medium { background: #8bc34a; }
+.progress-fill.normal { background: #fff; }
+.progress-fill.over { background: #ff5252; }
+
+.progress-text {
+  font-size: 28rpx;
+  font-weight: bold;
+  min-width: 80rpx;
+  text-align: right;
+}
+
+.nutrient-detail {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.nutrient-item {
+  margin-bottom: 16rpx;
+}
+
+.nutrient-item:last-child {
+  margin-bottom: 0;
+}
+
+.nutrient-bar {
+  height: 8rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4rpx;
+  margin-bottom: 10rpx;
+}
+
+.nutrient-fill {
+  height: 100%;
+  border-radius: 4rpx;
+}
+
+.nutrient-fill.protein { background: #4fc3f7; }
+.nutrient-fill.carbs { background: #ffb74d; }
+.nutrient-fill.fat { background: #e57373; }
+
+.nutrient-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nutr-name {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+.nutr-value {
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.meal-summary {
+  margin-top: 20rpx;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.meal-summary-title {
+  font-size: 24rpx;
+  opacity: 0.9;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.meal-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.meal-bar-item {
+  display: flex;
+  align-items: center;
+}
+
+.meal-bar-icon {
+  font-size: 28rpx;
+  width: 40rpx;
+  margin-right: 12rpx;
+}
+
+.meal-bar-track {
+  flex: 1;
+  height: 12rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.meal-bar-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 6rpx;
+  transition: width 0.3s ease;
+}
+
+.meal-bar-value {
+  font-size: 22rpx;
+  font-weight: bold;
+  min-width: 70rpx;
+  text-align: right;
+  margin-left: 12rpx;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-record-btn {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+}
+
+.add-record-btn text {
+  font-size: 28rpx;
+  margin-right: 4rpx;
+}
+
+.meal-group {
+  margin-bottom: 30rpx;
+}
+
+.meal-header {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.meal-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.meal-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  flex: 1;
+}
+
+.meal-cal {
+  font-size: 24rpx;
+  color: #07c160;
+}
+
+.record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.record-left {
+  display: flex;
+  align-items: center;
+}
+
+.record-icon {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+}
+
+.record-name {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+}
+
+.record-weight {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+.record-right {
+  text-align: right;
+}
+
+.record-cal {
+  font-size: 28rpx;
+  color: #07c160;
+  display: block;
+}
+
+.record-del {
+  font-size: 22rpx;
+  color: #ff5252;
+  margin-top: 4rpx;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60rpx 0;
+}
+
+.empty-state .icon {
+  font-size: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-state .text {
+  color: #999;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}
+
+.btn-add-record {
+  background: #07c160;
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  padding: 20rpx 60rpx;
+  font-size: 28rpx;
+}
+
+.btn-add-record::after {
+  border: none;
+}

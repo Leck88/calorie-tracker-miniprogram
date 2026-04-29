@@ -1,0 +1,117 @@
+<view class="page">
+  <!-- 今日摄入概览 -->
+  <view class="card overview-card">
+    <view class="overview-header">
+      <text class="overview-title">今日摄入</text>
+      <text class="overview-goal">目标 {{dailyGoal}} 千卡</text>
+    </view>
+    <view class="overview-nums">
+      <view class="num-item">
+        <text class="num-value">{{todayCalorie}}</text>
+        <text class="num-label">已摄入</text>
+      </view>
+      <view class="num-divider">|</view>
+      <view class="num-item">
+        <text class="num-value {{remaining < 0 ? 'over' : ''}}">{{remaining > 0 ? remaining : 0}}</text>
+        <text class="num-label">剩余</text>
+      </view>
+    </view>
+    <view class="tips" wx:if="{{remaining < 200 && remaining > 0}}">
+      <text class="tip-icon">💡</text>
+      <text class="tip-text">今日热量空间不多了，建议选择低卡食品！</text>
+    </view>
+    <view class="tips warning" wx:elif="{{remaining <= 0}}">
+      <text class="tip-icon">⚠️</text>
+      <text class="tip-text">今日已超标，建议选择负卡路里食品或减少摄入</text>
+    </view>
+  </view>
+
+  <!-- 减脂餐推荐 -->
+  <view class="card">
+    <view class="section-header">
+      <text class="section-title">🔥 低卡减脂推荐</text>
+      <text class="section-subtitle">每份热量 ≤ {{maxCalorie}} 千卡</text>
+    </view>
+    <view class="food-grid">
+      <view wx:for="{{lowCalorieFoods}}" wx:key="name" class="food-card" bindtap="selectFood" data-food="{{item}}">
+        <text class="food-emoji">{{item.icon}}</text>
+        <text class="food-name">{{item.name}}</text>
+        <view class="food-tags">
+          <text class="tag low-cal">{{item.calorie}}千卡</text>
+          <text class="tag high-protein" wx:if="{{item.protein > 10}}">高蛋白</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 高蛋白推荐 -->
+  <view class="card">
+    <view class="section-header">
+      <text class="section-title">💪 增肌减脂推荐</text>
+      <text class="section-subtitle">高蛋白低脂肪</text>
+    </view>
+    <view class="food-grid">
+      <view wx:for="{{highProteinFoods}}" wx:key="name" class="food-card protein-card" bindtap="selectFood" data-food="{{item}}">
+        <text class="food-emoji">{{item.icon}}</text>
+        <text class="food-name">{{item.name}}</text>
+        <view class="food-tags">
+          <text class="tag protein-tag">{{item.protein}}g蛋白</text>
+          <text class="tag fat-tag">{{item.fat}}g脂肪</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 减脂餐搭配方案 -->
+  <view class="card">
+    <view class="section-header">
+      <text class="section-title">🥗 减脂餐搭配</text>
+      <text class="section-subtitle">科学配比营养均衡</text>
+    </view>
+    <view class="meal-plans">
+      <view wx:for="{{mealPlans}}" wx:key="name" class="meal-plan">
+        <view class="plan-header">
+          <text class="plan-icon">{{item.icon}}</text>
+          <text class="plan-name">{{item.name}}</text>
+          <text class="plan-cal">{{item.totalCal}}千卡</text>
+        </view>
+        <view class="plan-foods">
+          <text wx:for="{{item.foods}}" wx:for-item="food" wx:key="*this" class="plan-food">{{food}}</text>
+        </view>
+        <view class="plan-ratio">
+          <text class="ratio-item">蛋白质 {{item.protein}}g</text>
+          <text class="ratio-item">碳水 {{item.carbs}}g</text>
+          <text class="ratio-item">脂肪 {{item.fat}}g</text>
+        </view>
+        <button class="btn-record" bindtap="recordMeal" data-foods="{{item.foods}}" data-cal="{{item.totalCal}}">
+          记录此餐
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 负卡路里食物 -->
+  <view class="card">
+    <view class="section-header">
+      <text class="section-title">🥬 负卡路里食物</text>
+      <text class="section-subtitle">消化消耗的热量比食物本身还多</text>
+    </view>
+    <view class="zero-cal-list">
+      <view wx:for="{{zeroCalFoods}}" wx:key="name" class="zero-cal-item">
+        <text class="zero-cal-icon">{{item.icon}}</text>
+        <text class="zero-cal-name">{{item.name}}</text>
+      </view>
+    </view>
+    <view class="tips small">
+      <text class="tip-text">注：负卡路里效果有限，但仍是有益的膳食纤维来源</text>
+    </view>
+  </view>
+
+  <!-- 快速添加按钮 -->
+  <view class="fixed-bottom">
+    <button class="btn-quick-add" bindtap="goToAdd">
+      <text class="btn-icon">➕</text>
+      <text>快速添加减脂餐</text>
+    </button>
+  </view>
+</view>

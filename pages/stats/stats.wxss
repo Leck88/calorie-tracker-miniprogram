@@ -1,0 +1,308 @@
+.page {
+  padding: 20rpx;
+}
+
+.time-tabs {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.time-tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 12rpx;
+}
+
+.time-tab.active {
+  background: #07c160;
+  color: #fff;
+  font-weight: bold;
+}
+
+.overview-card {
+  background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40rpx 30rpx;
+}
+
+.overview-main {
+  margin-bottom: 10rpx;
+}
+
+.overview-cal {
+  font-size: 100rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.overview-unit {
+  font-size: 32rpx;
+  margin-left: 10rpx;
+}
+
+.overview-label {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.overview-goal {
+  margin-top: 20rpx;
+}
+
+.goal-text {
+  font-size: 24rpx;
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8rpx 24rpx;
+  border-radius: 20rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.trend-chart {
+  position: relative;
+  height: 300rpx;
+  margin-bottom: 30rpx;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 260rpx;
+  padding-bottom: 40rpx;
+}
+
+.chart-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin: 0 4rpx;
+}
+
+.chart-bar {
+  width: 100%;
+  max-width: 50rpx;
+  background: #e0e0e0;
+  border-radius: 8rpx 8rpx 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-bar.today {
+  background: #07c160;
+}
+
+.chart-label {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 10rpx;
+  position: absolute;
+  bottom: 0;
+}
+
+.goal-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  flex: 1;
+  height: 2rpx;
+  background: #ff5252;
+  border-top: 2rpx dashed #ff5252;
+}
+
+.line-label {
+  font-size: 22rpx;
+  color: #ff5252;
+  margin-left: 10rpx;
+}
+
+.trend-summary {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.summary-item {
+  text-align: center;
+}
+
+.summary-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+}
+
+.summary-value.over {
+  color: #ff5252;
+}
+
+.summary-value.low {
+  color: #ff9800;
+}
+
+.summary-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+.nutrient-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nutrient-item {
+  text-align: center;
+}
+
+.nutrient-circle {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16rpx;
+}
+
+.nutrient-circle.protein { background: #e3f2fd; }
+.nutrient-circle.carbs { background: #fff3e0; }
+.nutrient-circle.fat { background: #ffebee; }
+
+.circle-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.circle-unit {
+  font-size: 20rpx;
+  color: #666;
+}
+
+.nutrient-name {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.nutrient-goal {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.top-food-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.top-food-item:last-child {
+  border-bottom: none;
+}
+
+.food-rank {
+  width: 40rpx;
+  height: 40rpx;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 16rpx;
+}
+
+.top-food-item:first-child .food-rank {
+  background: #ffd700;
+  color: #fff;
+}
+
+.top-food-item:nth-child(2) .food-rank {
+  background: #c0c0c0;
+  color: #fff;
+}
+
+.top-food-item:nth-child(3) .food-rank {
+  background: #cd7f32;
+  color: #fff;
+}
+
+.food-icon {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+}
+
+.food-info {
+  flex: 1;
+}
+
+.food-name {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+}
+
+.food-count {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.food-total-cal {
+  font-size: 26rpx;
+  color: #07c160;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  padding: 40rpx 0;
+}
+
+.settings-card {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.settings-icon {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+}
+
+.settings-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.settings-arrow {
+  font-size: 40rpx;
+  color: #999;
+}

@@ -1,0 +1,108 @@
+<view class="page">
+  <!-- 今日摄入概览 -->
+  <view class="card overview-card">
+    <view class="overview-header">
+      <text class="overview-title">今日摄入概览</text>
+    </view>
+    <view class="overview-content">
+      <view class="overview-item">
+        <text class="overview-value">{{todayCalorie}}</text>
+        <text class="overview-unit">千卡</text>
+        <text class="overview-label">已摄入</text>
+      </view>
+      <view class="overview-divider"></view>
+      <view class="overview-item">
+        <text class="overview-value">{{remainingCalorie}}</text>
+        <text class="overview-unit">千卡</text>
+        <text class="overview-label">剩余</text>
+      </view>
+    </view>
+    <view class="status-tag {{statusClass}}">{{statusText}}</view>
+  </view>
+
+  <!-- 营养比例 -->
+  <view class="card nutrient-card">
+    <view class="card-title">营养素比例</view>
+    <view class="nutrient-chart">
+      <view class="chart-ring">
+        <view class="ring-segment protein" style="transform: rotate({{proteinAngle}}deg)"></view>
+        <view class="ring-segment carbs" style="transform: rotate({{carbsAngle}}deg)"></view>
+        <view class="ring-segment fat" style="transform: rotate({{fatAngle}}deg)"></view>
+        <view class="ring-center">
+          <text class="total-label">{{totalNutrient.toFixed(0)}}g</text>
+        </view>
+      </view>
+      <view class="chart-legend">
+        <view class="legend-item">
+          <view class="legend-dot protein"></view>
+          <text class="legend-text">蛋白质 {{proteinRatio}}%</text>
+        </view>
+        <view class="legend-item">
+          <view class="legend-dot carbs"></view>
+          <text class="legend-text">碳水 {{carbsRatio}}%</text>
+        </view>
+        <view class="legend-item">
+          <view class="legend-dot fat"></view>
+          <text class="legend-text">脂肪 {{fatRatio}}%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐搭配 -->
+  <view class="card recommend-card">
+    <view class="card-title">💡 推荐搭配</view>
+    
+    <view class="recommend-tip" wx:if="{{recommendations.length === 0}}">
+      <text>暂无推荐</text>
+      <text class="tip-desc">记录更多饮食后获得个性化推荐</text>
+    </view>
+
+    <view wx:else>
+      <view wx:for="{{recommendations}}" wx:key="id" class="recommend-item">
+        <view class="recommend-header">
+          <text class="recommend-icon">{{item.icon}}</text>
+          <text class="recommend-name">{{item.name}}</text>
+          <text class="recommend-cal">{{item.calorie}}千卡</text>
+        </view>
+        <view class="recommend-tags">
+          <text class="tag tag-protein" wx:if="{{item.isProtein}}">🥩 高蛋白</text>
+          <text class="tag tag-light" wx:if="{{item.isLight}}">🥬 轻盈</text>
+          <text class="tag tag-balance" wx:if="{{item.isBalance}}">⚖️ 均衡</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搭配助手 -->
+  <view class="card helper-card">
+    <view class="card-title">🍽️ 搭配助手</view>
+    <view class="helper-tip">
+      <text class="helper-icon">💡</text>
+      <view class="helper-content">
+        <text class="helper-title">健康搭配建议</text>
+        <text class="helper-desc">
+          {{helperText}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快速添加 -->
+  <view class="quick-add-section">
+    <view class="section-title">快捷添加</view>
+    <view class="quick-grid">
+      <view 
+        wx:for="{{quickAddFoods}}" 
+        wx:key="id"
+        class="quick-item"
+        bindtap="quickAdd"
+        data-food="{{item}}"
+      >
+        <text class="quick-icon">{{item.icon}}</text>
+        <text class="quick-name">{{item.name}}</text>
+        <text class="quick-cal">{{item.calorie}}千卡</text>
+      </view>
+    </view>
+  </view>
+</view>

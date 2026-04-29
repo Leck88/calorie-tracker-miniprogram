@@ -1,0 +1,68 @@
+<view class="page">
+  <!-- 搜索框 -->
+  <view class="search-wrap">
+    <input 
+      class="search-input" 
+      placeholder="搜索食品..."
+      value="{{searchKey}}"
+      bindinput="onSearch"
+    />
+    <text class="search-icon">🔍</text>
+  </view>
+
+  <!-- 分类标签 -->
+  <scroll-view scroll-x class="category-scroll">
+    <view class="category-list">
+      <view 
+        class="category-item {{selectedCategory === '' ? 'active' : ''}}"
+        bindtap="selectCategory"
+        data-category=""
+      >
+        全部
+      </view>
+      <view 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        class="category-item {{selectedCategory === item.id ? 'active' : ''}}"
+        bindtap="selectCategory"
+        data-category="{{item.id}}"
+      >
+        {{item.icon}} {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 食品列表 -->
+  <view class="food-list">
+    <view 
+      wx:for="{{filteredFoods}}" 
+      wx:key="id" 
+      class="food-item"
+      bindtap="selectFood"
+      data-food="{{item}}"
+    >
+      <text class="food-icon">{{item.icon}}</text>
+      <view class="food-info">
+        <view class="food-name">{{item.name}}</view>
+        <view class="food-detail">
+          <text class="food-cal">{{item.calorie}}千卡/100g</text>
+          <text class="food-cat">{{getCategoryName(item.category)}}</text>
+        </view>
+      </view>
+      <view class="food-actions">
+        <view class="action-edit" catchtap="editFood" data-food="{{item}}">✏️</view>
+        <view class="action-delete" catchtap="deleteFood" data-id="{{item.id}}">🗑️</view>
+      </view>
+    </view>
+
+    <view wx:if="{{filteredFoods.length === 0}}" class="empty-state">
+      <text class="icon">🔍</text>
+      <text class="text">未找到相关食品</text>
+    </view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn" bindtap="goToAddFood">
+    <text>+</text>
+  </view>
+</view>
